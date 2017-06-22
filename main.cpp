@@ -252,8 +252,7 @@ std::map<std::string, double> test_timing_quadtree() {
     elapsed = end-start;
     times["bounds"] = elapsed.count();
     // create tree
-    Interval2D tree_bounds(xmin, xmax, ymin, ymax);
-    QuadTree tree(tree_bounds, max_size);
+    QuadTree tree(xmin, xmax, ymin, ymax, max_size);
 
     // fill tree
     start = std::chrono::high_resolution_clock::now();

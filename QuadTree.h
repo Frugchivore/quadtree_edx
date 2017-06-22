@@ -19,11 +19,9 @@ class QuadTree {
 
 public:
     typedef std::shared_ptr<QuadTree> quadtree_ptr;
-//    QuadTree();
-//    QuadTree(int max_size, int level);
-    QuadTree(Interval2D bounds, int max_size=DEFAULT_MAX_SIZE,  int level=0);
 
-//    QuadTree(const QuadTree& obj);
+    QuadTree(double xmin, double xmax, double ymin, double ymax, int max_size=DEFAULT_MAX_SIZE,  int level=0);
+    QuadTree(Interval2D bounds, int max_size=DEFAULT_MAX_SIZE,  int level=0);
 
     void Push(const TreeElement& elt);
 

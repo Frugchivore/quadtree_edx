@@ -7,13 +7,14 @@
 #include <memory>
 #include "QuadTree.h"
 
-//
-//QuadTree::QuadTree()  {
-//    bounds_ = Interval2D(0,0,0,0);
-//    max_size_ = DEFAULT_MAX_SIZE;
-//    level_ = 0;
-//}
 
+QuadTree::QuadTree(double xmin, double xmax, double ymin, double ymax, int max_size, int level) :
+        bounds_(xmin, xmax, ymin, ymax) {
+    max_size_ = max_size;
+    level_ = level;
+    size_ = 0;
+    split_ = false;
+}
 
 QuadTree::QuadTree(Interval2D bounds, int max_size, int level) : bounds_(bounds) {
     max_size_ = max_size;
@@ -21,22 +22,6 @@ QuadTree::QuadTree(Interval2D bounds, int max_size, int level) : bounds_(bounds)
     size_ = 0;
     split_ = false;
 }
-
-//QuadTree::QuadTree(int max_size, int level) : bounds_(Interval2D(0,0,0,0)) {
-//    max_size_ = max_size;
-//    level_ = level;
-//}
-
-//QuadTree::QuadTree(const QuadTree &obj) {
-//    bounds_ = obj.bounds_;
-//    elements_ = obj.elements_;
-//    max_size_ = obj.max_size_;
-//    level_ = obj.level_;
-//    NE_ = obj.NE_;
-//    NW_ = obj.NW_;
-//    SE_ = obj.SE_;
-//    SW_ = obj.SW_;
-//}
 
 bool QuadTree::Assign(const TreeElement& elt) {
 
@@ -110,5 +95,7 @@ std::vector<std::shared_ptr<QuadTree> > QuadTree::GetChildren() {
     }
     return children;
 }
+
+
 
 
